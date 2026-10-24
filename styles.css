@@ -35,3 +35,9 @@ h1 em{color:#2463eb}
 .contact-panel{border-color:#d8e3f1;background:linear-gradient(120deg,#fff,#edf4ff)}
 .contact-line a,.card a{color:#1747b8}
 footer{color:#687b93}
+
+/* Credential cards: visual identity without fabricating certificate scans */
+.cert-card{position:relative;padding-top:22px}
+.credential-mark{width:54px;height:54px;display:grid;place-items:center;border:1px solid #c7d9f5;background:linear-gradient(135deg,#fff,#eaf2ff);font-size:25px;margin-bottom:17px;box-shadow:0 8px 20px #2463eb10}
+.cert-card .label{color:#2463eb}
+.cert-card .cert-link{margin-top:19px}
