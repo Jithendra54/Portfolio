@@ -84,3 +84,58 @@ fetch('https://api.github.com/users/Jithendra54/repos?type=owner&sort=updated&pe
     ['pointerup','pointerleave','blur'].forEach(ev => el.addEventListener(ev, () => el.classList.remove('is-pressed')));
   });
 })();
+
+
+/* Extra micro-interactions: button ripples, card tilt, header state, and gentle pointer parallax */
+(() => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const header = document.querySelector('header');
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', updateHeader, {passive:true});
+  updateHeader();
+
+  if (!reduced) {
+    document.querySelectorAll('.button, .back-to-top').forEach(button => {
+      button.addEventListener('pointerdown', event => {
+        if (event.pointerType === 'touch' || event.pointerType === 'mouse') {
+          const rect = button.getBoundingClientRect();
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple';
+          const size = Math.max(rect.width, rect.height) * 1.15;
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
+          ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
+          button.querySelectorAll('.ripple').forEach(old => old.remove());
+          button.appendChild(ripple);
+          ripple.addEventListener('animationend', () => ripple.remove(), {once:true});
+        }
+      });
+    });
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        if (event.pointerType !== 'mouse' || window.innerWidth < 900) return;
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const rotateY = (x - .5) * 3.5;
+        const rotateX = (.5 - y) * 3.5;
+        card.style.transform = 'perspective(900px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+    });
+
+    const hero = document.querySelector('.hero');
+    const heroCopy = document.querySelector('.hero-copy');
+    hero?.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse' || window.innerWidth < 900 || !heroCopy) return;
+      const rect = hero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
+      heroCopy.style.setProperty('--hero-x', (x * 5).toFixed(2) + 'px');
+      heroCopy.style.setProperty('--hero-y', (y * 4).toFixed(2) + 'px');
+      heroCopy.style.translate = (x * 2).toFixed(2) + 'px ' + (y * 2).toFixed(2) + 'px';
+    });
+    hero?.addEventListener('pointerleave', () => { if (heroCopy) heroCopy.style.translate = ''; });
+  }
+})();
