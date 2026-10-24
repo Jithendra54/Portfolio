@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101411">
+  <title>Jithendra Vishnu | Portfolio</title>
+  <style>
+    :root{color-scheme:dark;--bg:#101411;--panel:#171d19;--text:#eff5ef;--muted:#a0aaa1;--lime:#c1f27b;--line:#303a32}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}
+    a{color:inherit} .wrap{width:min(1060px,calc(100% - 40px));margin:auto}
+    header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+    nav{display:flex;align-items:center;justify-content:space-between;width:100%}.brand{font-weight:750;text-decoration:none;font-size:19px}.brand b{color:var(--lime)}
+    .links{display:flex;gap:24px}.links a,.social{color:var(--muted);text-decoration:none;font-size:14px}.links a:hover,.social:hover{color:var(--lime)}
+    .hero{padding:100px 0 88px;max-width:850px}.eyebrow,.label{color:var(--lime);font:12px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
+    h1{font-size:clamp(48px,9vw,88px);letter-spacing:-.065em;line-height:1.03;margin:22px 0}h1 em{color:var(--lime);font-style:normal}
+    .intro{font-size:19px;color:#c4cdc5;max-width:690px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .button{display:inline-block;border:1px solid var(--line);border-radius:7px;padding:10px 16px;text-decoration:none;font-weight:650}.primary{background:var(--lime);color:#172012;border-color:var(--lime)}
+    section{padding:54px 0 68px;border-top:1px solid var(--line)}h2{font-size:32px;letter-spacing:-.035em;margin:8px 0 24px}
+    .about{max-width:760px;color:#c4cdc5}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.chip,.meta span{border:1px solid var(--line);padding:5px 10px;border-radius:99px;color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;min-height:205px}
+    .card h3{margin:12px 0 6px;font-size:19px}.card p{color:var(--muted);margin:0 0 18px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}.card a{color:var(--lime);text-decoration:none;font-weight:650}
+    .status{color:var(--muted)}footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
+    @media(max-width:650px){.links{gap:12px}.links a{font-size:12px}.hero{padding:72px 0}.intro{font-size:17px}}
+  </style>
+</head>
+<body>
+  <header><nav class="wrap">
+    <a class="brand" href="#">Jithendra<b>.</b></a>
+    <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+  </nav></header>
+  <main class="wrap">
+    <div class="hero">
+      <div class="eyebrow">Computer Science · Class of 2026</div>
+      <h1>Building a foundation<br>for <em>what’s next.</em></h1>
+      <p class="intro">I’m Jithendra Vishnu, a Computer Science and Engineering graduate exploring software development and IT infrastructure through hands-on learning and projects.</p>
+      <div class="buttons"><a class="button primary" href="#projects">Explore my work ↓</a><a class="button" href="https://www.linkedin.com/in/jithendra-vishnu-a48143313" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div>
+    </div>
+    <section id="about">
+      <div class="label">01 / About</div><h2>Curious by design.</h2>
+      <p class="about">I graduated with a B.Tech in Computer Science and Engineering from the Central University of Jammu in 2026. My interests span software development and IT infrastructure, and I’m building practical knowledge through coursework, personal projects, and continued learning.</p>
+      <div class="chips"><span class="chip">Software engineering</span><span class="chip">Full-stack development</span><span class="chip">Cloud &amp; DevOps</span><span class="chip">IT systems</span><span class="chip">Cybersecurity</span></div>
+    </section>
+    <section id="projects">
+      <div class="label">02 / Selected work</div><h2>Projects from GitHub.</h2>
+      <p class="status" id="status">Loading selected public repositories…</p><div class="grid" id="projects-grid"></div>
+    </section>
+    <section id="contact">
+      <div class="label">03 / Contact</div><h2>Start a conversation.</h2>
+      <p class="about">I’m open to entry-level opportunities across software engineering, cloud, DevOps, IT systems, and cybersecurity.</p>
+      <div class="buttons"><a class="button primary" href="https://www.linkedin.com/in/jithendra-vishnu-a48143313" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="button" href="https://github.com/Jithendra54" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap">© 2026 Jithendra Vishnu</div></footer>
+  <script>
+    const statusEl=document.querySelector('#status'), grid=document.querySelector('#projects-grid');
+    fetch('./data/github-projects.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{
+      const repos=data.repositories||[];
+      statusEl.textContent= (data.status==='stale'?'Showing cached project data. ':'') + (repos.length?`Updated from GitHub: ${data.updatedAt?new Date(data.updatedAt).toLocaleString():'waiting for first sync'}.`:'No selected projects yet. Check back after the first GitHub sync.');
+      grid.innerHTML=repos.map(r=>`<article class="card"><div class="label">${r.language||'Project'}${r.stargazers_count?' · ★ '+r.stargazers_count:''}</div><h3>${escapeHtml(r.name)}</h3><p>${escapeHtml(r.description||r.readmeSummary||'See the repository for project details.')}</p><div class="meta">${(r.topics||[]).slice(0,3).map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div><p style="margin:18px 0 0"><a href="${r.html_url}" target="_blank" rel="noreferrer">View project ↗</a></p></article>`).join('');
+    }).catch(()=>{statusEl.textContent='Project information will appear after the first GitHub sync. Visit GitHub to see my public work.'});
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  </script>
+</body>
+</html>
