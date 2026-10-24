@@ -41,3 +41,16 @@ footer{color:#687b93}
 .credential-mark{width:54px;height:54px;display:grid;place-items:center;border:1px solid #c7d9f5;background:linear-gradient(135deg,#fff,#eaf2ff);font-size:25px;margin-bottom:17px;box-shadow:0 8px 20px #2463eb10}
 .cert-card .label{color:#2463eb}
 .cert-card .cert-link{margin-top:19px}
+
+/* Text-led hero: no personal portrait */
+.hero-text-only{grid-template-columns:minmax(0,850px);min-height:560px}
+.hero-text-only .hero-copy{max-width:850px}
+.hero-text-only .intro{max-width:760px}
+.credential-mark{flex:0 0 54px}
+.cert-card{display:grid;grid-template-columns:58px minmax(0,1fr);column-gap:17px;align-content:start}
+.cert-card .credential-mark{grid-column:1;grid-row:1 / span 3;margin:0;width:54px;height:54px}
+.cert-card .label,.cert-card h3,.cert-card p,.cert-card .meta{grid-column:2}
+.cert-card .label{align-self:end}
+.cert-card h3{margin-top:7px}
+.cert-card .cert-link{grid-column:2;margin-top:15px}
+@media(max-width:560px){.hero-text-only{min-height:unset;padding:65px 0 72px}.cert-card{grid-template-columns:44px minmax(0,1fr);column-gap:12px}.cert-card .credential-mark{width:42px;height:42px;font-size:21px}}
