@@ -4,62 +4,109 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101411">
-  <title>Jithendra Vishnu | Portfolio</title>
+  <meta name="description" content="Portfolio of Jithendra Vishnu, Computer Science and Engineering graduate. Projects in web development and cybersecurity research.">
+  <meta name="author" content="Jithendra Vishnu">
+  <title>Jithendra Vishnu — Software & Systems</title>
   <style>
-    :root{color-scheme:dark;--bg:#101411;--panel:#171d19;--text:#eff5ef;--muted:#a0aaa1;--lime:#c1f27b;--line:#303a32}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}
-    a{color:inherit} .wrap{width:min(1060px,calc(100% - 40px));margin:auto}
-    header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center}
-    nav{display:flex;align-items:center;justify-content:space-between;width:100%}.brand{font-weight:750;text-decoration:none;font-size:19px}.brand b{color:var(--lime)}
-    .links{display:flex;gap:24px}.links a,.social{color:var(--muted);text-decoration:none;font-size:14px}.links a:hover,.social:hover{color:var(--lime)}
-    .hero{padding:100px 0 88px;max-width:850px}.eyebrow,.label{color:var(--lime);font:12px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
-    h1{font-size:clamp(48px,9vw,88px);letter-spacing:-.065em;line-height:1.03;margin:22px 0}h1 em{color:var(--lime);font-style:normal}
-    .intro{font-size:19px;color:#c4cdc5;max-width:690px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-    .button{display:inline-block;border:1px solid var(--line);border-radius:7px;padding:10px 16px;text-decoration:none;font-weight:650}.primary{background:var(--lime);color:#172012;border-color:var(--lime)}
-    section{padding:54px 0 68px;border-top:1px solid var(--line)}h2{font-size:32px;letter-spacing:-.035em;margin:8px 0 24px}
-    .about{max-width:760px;color:#c4cdc5}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.chip,.meta span{border:1px solid var(--line);padding:5px 10px;border-radius:99px;color:var(--muted);font-size:13px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;min-height:205px}
-    .card h3{margin:12px 0 6px;font-size:19px}.card p{color:var(--muted);margin:0 0 18px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}.card a{color:var(--lime);text-decoration:none;font-weight:650}
-    .status{color:var(--muted)}footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
-    @media(max-width:650px){.links{gap:12px}.links a{font-size:12px}.hero{padding:72px 0}.intro{font-size:17px}}
+    :root{color-scheme:dark;--bg:#101411;--panel:#171d19;--text:#eff5ef;--muted:#a0aaa1;--lime:#c1f27b;--line:#303a32;--soft:#c4cdc5}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit}.wrap{width:min(1100px,calc(100% - 40px));margin-inline:auto}
+    header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;position:sticky;top:0;background:rgba(16,20,17,.92);backdrop-filter:blur(12px);z-index:5}
+    nav{display:flex;align-items:center;justify-content:space-between;width:100%}.brand{font-weight:800;text-decoration:none;font-size:20px;letter-spacing:-.04em}.brand b{color:var(--lime)}
+    .links{display:flex;gap:24px}.links a{color:var(--muted);text-decoration:none;font-size:14px}.links a:hover{color:var(--lime)}
+    .hero{padding:100px 0 88px;max-width:900px}.eyebrow,.label{color:var(--lime);font:12px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase}
+    h1{font-size:clamp(48px,8vw,88px);letter-spacing:-.07em;line-height:1.02;margin:20px 0}h1 em{color:var(--lime);font-style:normal}
+    .intro{font-size:clamp(17px,2.3vw,20px);color:var(--soft);max-width:730px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .button{display:inline-block;border:1px solid var(--line);border-radius:7px;padding:10px 16px;text-decoration:none;font-weight:650;transition:transform .18s ease,border-color .18s ease}.button:hover{transform:translateY(-2px);border-color:var(--lime)}.primary{background:var(--lime);color:#172012;border-color:var(--lime)}
+    section{padding:58px 0 70px;border-top:1px solid var(--line)}h2{font-size:clamp(27px,4vw,36px);letter-spacing:-.04em;margin:8px 0 22px}.about{max-width:780px;color:var(--soft)}
+    .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.chip,.meta span{border:1px solid var(--line);padding:5px 10px;border-radius:99px;color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:15px;margin-top:24px}.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:22px;display:flex;flex-direction:column;min-height:230px;transition:transform .18s ease,border-color .18s ease}.card:hover{transform:translateY(-3px);border-color:#657b58}
+    .card h3{margin:12px 0 7px;font-size:20px}.card p{color:var(--muted);margin:0 0 18px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}.card a{color:var(--lime);text-decoration:none;font-weight:650}.card a:hover{text-decoration:underline}
+    .status{color:var(--muted);font-size:14px}.contact-line{display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--muted);margin-top:20px}.contact-line a{color:var(--lime);text-decoration:none}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .accent-rule{width:48px;height:3px;background:var(--lime);margin:20px 0 0}.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--lime);color:#172012;padding:8px;z-index:10}
+    @media(max-width:650px){.wrap{width:min(100% - 28px,1100px)}.links{gap:13px}.links a{font-size:12px}.hero{padding:72px 0}.intro{font-size:17px}section{padding:44px 0 54px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
 <body>
-  <header><nav class="wrap">
-    <a class="brand" href="#">Jithendra<b>.</b></a>
-    <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><nav class="wrap" aria-label="Main navigation">
+    <a class="brand" href="#top">Jithendra<b>.</b></a>
+    <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Focus</a><a href="#contact">Contact</a></div>
   </nav></header>
-  <main class="wrap">
-    <div class="hero">
-      <div class="eyebrow">Computer Science · Class of 2026</div>
-      <h1>Building a foundation<br>for <em>what’s next.</em></h1>
-      <p class="intro">I’m Jithendra Vishnu, a Computer Science and Engineering graduate exploring software development and IT infrastructure through hands-on learning and projects.</p>
-      <div class="buttons"><a class="button primary" href="#projects">Explore my work ↓</a><a class="button" href="https://www.linkedin.com/in/jithendra-vishnu-a48143313" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div>
+  <main class="wrap" id="main">
+    <div class="hero" id="top">
+      <div class="eyebrow">Computer Science & Engineering · 2026</div>
+      <h1>Building useful things<br>with <em>code and curiosity.</em></h1>
+      <p class="intro">I’m Jithendra Vishnu, a Computer Science and Engineering graduate from the Central University of Jammu. I build software projects and explore how applications, cloud systems, and cybersecurity work in practice.</p>
+      <div class="buttons"><a class="button primary" href="#projects">Explore my work ↓</a><a class="button" href="https://www.linkedin.com/in/jithendra-vishnu-a48143313" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="button" href="https://github.com/Jithendra54" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      <div class="accent-rule"></div>
     </div>
     <section id="about">
-      <div class="label">01 / About</div><h2>Curious by design.</h2>
-      <p class="about">I graduated with a B.Tech in Computer Science and Engineering from the Central University of Jammu in 2026. My interests span software development and IT infrastructure, and I’m building practical knowledge through coursework, personal projects, and continued learning.</p>
-      <div class="chips"><span class="chip">Software engineering</span><span class="chip">Full-stack development</span><span class="chip">Cloud &amp; DevOps</span><span class="chip">IT systems</span><span class="chip">Cybersecurity</span></div>
+      <div class="label">01 / About</div><h2>Learning by building.</h2>
+      <p class="about">I completed a B.Tech in Computer Science and Engineering at the Central University of Jammu in 2026. I’m interested in practical software engineering, web development, cloud and IT infrastructure, and cybersecurity. My portfolio focuses on projects and experiments that help me turn technical concepts into working implementations.</p>
     </section>
     <section id="projects">
-      <div class="label">02 / Selected work</div><h2>Projects from GitHub.</h2>
-      <p class="status" id="status">Loading selected public repositories…</p><div class="grid" id="projects-grid"></div>
+      <div class="label">02 / Selected work</div><h2>Projects from my GitHub.</h2>
+      <p class="status" id="status" aria-live="polite">Loading public repositories…</p>
+      <div class="grid" id="projects-grid">
+        <article class="card"><div class="label">Web development</div><h3>C Forge — Online C Compiler</h3><p>A browser-based C coding experience for writing programs, compiling, and viewing output.</p><div class="meta"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><p style="margin:18px 0 0"><a href="https://github.com/Jithendra54/Online_C-compiler" target="_blank" rel="noreferrer">View repository ↗</a></p></article>
+        <article class="card"><div class="label">Cybersecurity research</div><h3>Network Intrusion Detection Robustness</h3><p>An offline research project studying feature-space robustness for supervised network intrusion classifiers using UNSW-NB15.</p><div class="meta"><span>Python</span><span>Machine learning</span><span>Research</span></div><p style="margin:18px 0 0"><a href="https://github.com/Jithendra54/nids-robustness-study" target="_blank" rel="noreferrer">View repository ↗</a></p></article>
+      </div>
+    </section>
+    <section id="skills">
+      <div class="label">03 / Technical focus</div><h2>Areas I’m developing.</h2>
+      <p class="about">My learning spans application development and core IT concepts. The skills below reflect areas of study and project work, not a claim of professional proficiency in every tool.</p>
+      <div class="chips"><span class="chip">C programming</span><span class="chip">HTML · CSS · JavaScript</span><span class="chip">Python</span><span class="chip">Machine learning fundamentals</span><span class="chip">Cybersecurity</span><span class="chip">Cloud computing</span><span class="chip">Operating systems</span><span class="chip">Computer networks</span><span class="chip">Databases</span><span class="chip">Git & GitHub</span></div>
     </section>
     <section id="contact">
-      <div class="label">03 / Contact</div><h2>Start a conversation.</h2>
-      <p class="about">I’m open to entry-level opportunities across software engineering, cloud, DevOps, IT systems, and cybersecurity.</p>
-      <div class="buttons"><a class="button primary" href="https://www.linkedin.com/in/jithendra-vishnu-a48143313" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="button" href="https://github.com/Jithendra54" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      <div class="label">04 / Contact</div><h2>Let’s connect.</h2>
+      <p class="about">I’m interested in entry-level opportunities and collaborations related to software development, IT systems, cloud, and cybersecurity.</p>
+      <div class="buttons"><a class="button primary" href="https://www.linkedin.com/in/jithendra-vishnu-a48143313" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a><a class="button" href="https://github.com/Jithendra54" target="_blank" rel="noreferrer">Browse GitHub ↗</a></div>
+      <div class="contact-line"><span>GitHub: <a href="https://github.com/Jithendra54" target="_blank" rel="noreferrer">@Jithendra54</a></span><span>·</span><span>LinkedIn: <a href="https://www.linkedin.com/in/jithendra-vishnu-a48143313" target="_blank" rel="noreferrer">Profile</a></span></div>
     </section>
   </main>
-  <footer><div class="wrap">© 2026 Jithendra Vishnu</div></footer>
+  <footer class="wrap"><span>© <span id="year">2026</span> Jithendra Vishnu</span><span>Designed and maintained by Jithendra Vishnu</span></footer>
   <script>
-    const statusEl=document.querySelector('#status'), grid=document.querySelector('#projects-grid');
-    fetch('./data/github-projects.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{
-      const repos=data.repositories||[];
-      statusEl.textContent= (data.status==='stale'?'Showing cached project data. ':'') + (repos.length?`Updated from GitHub: ${data.updatedAt?new Date(data.updatedAt).toLocaleString():'waiting for first sync'}.`:'No selected projects yet. Check back after the first GitHub sync.');
-      grid.innerHTML=repos.map(r=>`<article class="card"><div class="label">${r.language||'Project'}${r.stargazers_count?' · ★ '+r.stargazers_count:''}</div><h3>${escapeHtml(r.name)}</h3><p>${escapeHtml(r.description||r.readmeSummary||'See the repository for project details.')}</p><div class="meta">${(r.topics||[]).slice(0,3).map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div><p style="margin:18px 0 0"><a href="${r.html_url}" target="_blank" rel="noreferrer">View project ↗</a></p></article>`).join('');
-    }).catch(()=>{statusEl.textContent='Project information will appear after the first GitHub sync. Visit GitHub to see my public work.'});
-    function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const statusEl = document.querySelector('#status');
+    const grid = document.querySelector('#projects-grid');
+    const pinned = new Set(['Online_C-compiler', 'nids-robustness-study']);
+    fetch('https://api.github.com/users/Jithendra54/repos?type=owner&sort=updated&per_page=100')
+      .then(response => { if (!response.ok) throw new Error('GitHub API unavailable'); return response.json(); })
+      .then(repos => {
+        if (!Array.isArray(repos)) throw new Error('Unexpected GitHub response');
+        const selected = repos.filter(repo => !repo.fork && !repo.archived);
+        const existing = new Set();
+        selected.forEach(repo => existing.add(repo.name));
+        const curated = selected.sort((a, b) => {
+          const ap = pinned.has(a.name) ? 1 : 0, bp = pinned.has(b.name) ? 1 : 0;
+          return bp - ap || new Date(b.pushed_at) - new Date(a.pushed_at);
+        }).slice(0, 6);
+        if (!curated.length) throw new Error('No public projects found');
+        grid.innerHTML = curated.map(repo => {
+          const topics = (repo.topics || []).slice(0, 3);
+          const tags = topics.length ? topics : [repo.language || 'Project'];
+          return '<article class="card"><div class="label">' + escapeHtml(repo.language || 'Project') +
+            (repo.stargazers_count ? ' · ★ ' + repo.stargazers_count : '') + '</div><h3>' + escapeHtml(repo.name.replace(/[-_]/g, ' ')) +
+            '</h3><p>' + escapeHtml(repo.description || 'Project repository. Open GitHub for source code and details.') +
+            '</p><div class="meta">' + tags.map(tag => '<span>' + escapeHtml(tag) + '</span>').join('') +
+            '</div><p style="margin:18px 0 0"><a href="' + safeRepoUrl(repo.html_url) +
+            '" target="_blank" rel="noreferrer">View repository ↗</a></p></article>';
+        }).join('');
+        statusEl.textContent = 'Public repositories loaded live from GitHub · showing up to ' + curated.length + ' projects.';
+      })
+      .catch(() => {
+        statusEl.textContent = 'Showing selected projects. Visit GitHub for the latest repositories.';
+      });
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    }
+    function safeRepoUrl(value) {
+      try { const url = new URL(value); return url.hostname === 'github.com' ? url.href : 'https://github.com/Jithendra54'; }
+      catch { return 'https://github.com/Jithendra54'; }
+    }
   </script>
 </body>
 </html>
