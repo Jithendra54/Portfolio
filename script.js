@@ -15,3 +15,72 @@ function closePreview(){const m=document.querySelector('#preview-modal');m.class
 document.addEventListener('click',e=>{const b=e.target.closest('[data-preview]');if(b){const repo={name:b.dataset.preview,html_url:'https://github.com/Jithendra54/'+b.dataset.preview,language:'Project'};openPreview(b.dataset.preview,repo)}if(e.target.closest('[data-close-preview]'))closePreview()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePreview()});
 fetch('https://api.github.com/users/Jithendra54/repos?type=owner&sort=updated&per_page=100').then(r=>{if(!r.ok)throw Error('GitHub API unavailable');return r.json()}).then(repos=>{const selected=repos.filter(r=>!r.fork&&!r.archived).sort((a,b)=>(Number(pinned.has(b.name))-Number(pinned.has(a.name)))||new Date(b.pushed_at)-new Date(a.pushed_at)).slice(0,6);if(!selected.length)throw Error('No public projects');grid.innerHTML=selected.map(card).join('');statusEl.textContent='Live from GitHub · '+selected.length+' public projects. Use Explore project for an interactive overview.'}).catch(()=>{statusEl.textContent='Showing selected projects. Visit GitHub for the latest repositories.';grid.querySelectorAll('.card').forEach(card=>{const link=card.querySelector('a[href*="github.com"]');if(link){const m=link.href.match(/github\.com\/Jithendra54\/([^/]+)/);if(m){const btn=document.createElement('button');btn.className='button project-preview-btn';btn.type='button';btn.dataset.preview=m[1];btn.textContent='Explore project ↗';link.parentNode.insertBefore(btn,link)}}})});
+
+
+/* UI polish: scroll reveals, progress indicator, tilt, magnetic hover, and back-to-top */
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const progress = document.getElementById('scroll-progress-bar');
+  const topButton = document.getElementById('back-to-top');
+  let ticking = false;
+  const updateScrollUI = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const amount = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+    if (progress) progress.style.width = amount + '%';
+    if (topButton) topButton.classList.toggle('visible', window.scrollY > 480);
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { window.requestAnimationFrame(updateScrollUI); ticking = true; }
+  }, { passive: true });
+  updateScrollUI();
+  topButton?.addEventListener('click', () => window.scrollTo({top: 0, behavior: reduceMotion ? 'auto' : 'smooth'}));
+
+  const revealTargets = 'section, .hero-copy, .portrait-wrap, .card, .contact-panel, .chips, .about';
+  const targets = document.querySelectorAll(revealTargets);
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    targets.forEach((el, i) => {
+      el.classList.add('reveal-ready');
+      if (el.matches('.card')) el.style.setProperty('--reveal-delay', (i % 4) * 65 + 'ms');
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+    targets.forEach(el => observer.observe(el));
+  }
+
+  document.querySelectorAll('.card').forEach(card => {
+    if (!reduceMotion) {
+      card.addEventListener('pointermove', e => {
+        if (e.pointerType !== 'mouse' || window.innerWidth < 850) return;
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        card.style.setProperty('--pointer-x', (x * 100) + '%');
+        card.style.setProperty('--pointer-y', (y * 100) + '%');
+      });
+    }
+  });
+
+  const navLinks = [...document.querySelectorAll('.links a[href^="#"]')];
+  const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length) {
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' });
+    sections.forEach(section => navObserver.observe(section));
+  }
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('pointerdown', () => el.classList.add('is-pressed'));
+    ['pointerup','pointerleave','blur'].forEach(ev => el.addEventListener(ev, () => el.classList.remove('is-pressed')));
+  });
+})();
