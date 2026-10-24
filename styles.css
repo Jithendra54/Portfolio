@@ -95,3 +95,57 @@ body{overflow-x:hidden}
 .project-actions .button:hover{box-shadow:0 7px 18px #2463eb1a}
 @media(max-width:700px){.ambient-orb{opacity:.13}.back-to-top{right:14px;bottom:14px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal-ready{opacity:1;transform:none}}
+
+
+/* Expanded motion system: layered depth, scroll cues, animated credentials */
+:root{--motion-ease:cubic-bezier(.18,.75,.25,1)}
+html{scroll-behavior:smooth}
+header{transition:box-shadow .3s ease,background .3s ease}
+header.is-scrolled{box-shadow:0 8px 30px #173d700e;background:#f8fbfff7}
+.hero-copy .eyebrow{animation:hero-enter .7s .05s both}
+.hero-copy h1{animation:hero-enter .8s .12s both}
+.hero-copy .intro{animation:hero-enter .8s .22s both}
+.hero-copy .buttons{animation:hero-enter .8s .32s both}
+.hero-copy .availability{animation:hero-enter .8s .42s both}
+h1 em{display:inline-block;position:relative}
+h1 em:after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:3px;border-radius:4px;background:linear-gradient(90deg,#2463eb,#8ab5ff,#2463eb);transform:scaleX(0);transform-origin:left;animation:underline-draw 1s .7s var(--motion-ease) forwards}
+@keyframes underline-draw{to{transform:scaleX(1)}}
+section .label{transition:letter-spacing .35s ease}
+section.revealed .label{letter-spacing:.24em}
+.card{transform-style:preserve-3d;will-change:transform}
+.card .label,.card h3,.card p,.card .meta,.card .project-actions{transition:transform .3s var(--motion-ease)}
+@media(hover:hover) and (pointer:fine){
+  .card:hover h3{transform:translateY(-2px)}
+  .card:hover .meta{transform:translateY(-2px)}
+  .cert-card:hover{box-shadow:0 24px 55px #2463eb1c}
+  .cert-card:hover .credential-mark{transform:rotate(-5deg) scale(1.07)}
+}
+.credential-mark{transition:transform .35s var(--motion-ease),box-shadow .35s ease,border-color .35s ease}
+.cert-card:before{height:3px}
+.cert-card:after{content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,#2463eb,#8ab5ff,#2463eb);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--motion-ease)}
+.cert-card:hover:after{transform:scaleX(1)}
+.chip{position:relative;overflow:hidden}
+.chip:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,#fff9 48%,transparent 75%);transform:translateX(-130%);transition:transform .55s ease}
+.chip:hover:before{transform:translateX(130%)}
+.button{position:relative;overflow:hidden}
+.button .ripple{position:absolute;border-radius:50%;background:#fff8;transform:scale(0);animation:ripple-out .55s ease-out;pointer-events:none}
+@keyframes ripple-out{to{transform:scale(4);opacity:0}}
+.ambient-orb{will-change:transform}
+#scroll-progress-bar{background-size:200% 100%;animation:progress-shimmer 3s linear infinite}
+@keyframes progress-shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.back-to-top.visible{animation:top-pop .35s var(--motion-ease) both}
+@keyframes top-pop{0%{opacity:0;transform:translateY(12px) scale(.8)}75%{transform:translateY(-2px) scale(1.04)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.preview-window{transform-origin:center;animation:preview-entrance .32s var(--motion-ease) both}
+.preview-content .preview-feature{animation:feature-rise .45s var(--motion-ease) both}
+.preview-feature:nth-child(2){animation-delay:.06s}.preview-feature:nth-child(3){animation-delay:.12s}
+@keyframes feature-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.contact-line a{position:relative}
+.contact-line a:after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1px;background:currentColor;transition:right .25s ease}
+.contact-line a:hover:after{right:0}
+@media(max-width:560px){h1 em:after{height:2px}.card{will-change:auto}}
+@media(prefers-reduced-motion:reduce){
+ h1 em:after{animation:none;transform:scaleX(1)}
+ .button .ripple{display:none}
+ #scroll-progress-bar{animation:none}
+ .preview-content .preview-feature{animation:none}
+}
