@@ -7,27 +7,7 @@
   <meta name="description" content="Portfolio of Jithendra Vishnu, Computer Science and Engineering graduate. Projects in web development and cybersecurity research.">
   <meta name="author" content="Jithendra Vishnu">
   <title>Jithendra Vishnu — Software & Systems</title>
-  <style>
-    :root{color-scheme:dark;--bg:#101411;--panel:#171d19;--text:#eff5ef;--muted:#a0aaa1;--lime:#c1f27b;--line:#303a32;--soft:#c4cdc5}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    a{color:inherit}.wrap{width:min(1100px,calc(100% - 40px));margin-inline:auto}
-    header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;position:sticky;top:0;background:rgba(16,20,17,.92);backdrop-filter:blur(12px);z-index:5}
-    nav{display:flex;align-items:center;justify-content:space-between;width:100%}.brand{font-weight:800;text-decoration:none;font-size:20px;letter-spacing:-.04em}.brand b{color:var(--lime)}
-    .links{display:flex;gap:24px}.links a{color:var(--muted);text-decoration:none;font-size:14px}.links a:hover{color:var(--lime)}
-    .hero{padding:100px 0 88px;max-width:900px}.eyebrow,.label{color:var(--lime);font:12px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase}
-    h1{font-size:clamp(48px,8vw,88px);letter-spacing:-.07em;line-height:1.02;margin:20px 0}h1 em{color:var(--lime);font-style:normal}
-    .intro{font-size:clamp(17px,2.3vw,20px);color:var(--soft);max-width:730px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-    .button{display:inline-block;border:1px solid var(--line);border-radius:7px;padding:10px 16px;text-decoration:none;font-weight:650;transition:transform .18s ease,border-color .18s ease}.button:hover{transform:translateY(-2px);border-color:var(--lime)}.primary{background:var(--lime);color:#172012;border-color:var(--lime)}
-    section{padding:58px 0 70px;border-top:1px solid var(--line)}h2{font-size:clamp(27px,4vw,36px);letter-spacing:-.04em;margin:8px 0 22px}.about{max-width:780px;color:var(--soft)}
-    .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.chip,.meta span{border:1px solid var(--line);padding:5px 10px;border-radius:99px;color:var(--muted);font-size:13px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:15px;margin-top:24px}.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:22px;display:flex;flex-direction:column;min-height:230px;transition:transform .18s ease,border-color .18s ease}.card:hover{transform:translateY(-3px);border-color:#657b58}
-    .card h3{margin:12px 0 7px;font-size:20px}.card p{color:var(--muted);margin:0 0 18px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}.card a{color:var(--lime);text-decoration:none;font-weight:650}.card a:hover{text-decoration:underline}
-    .status{color:var(--muted);font-size:14px}.contact-line{display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--muted);margin-top:20px}.contact-line a{color:var(--lime);text-decoration:none}
-    footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    .accent-rule{width:48px;height:3px;background:var(--lime);margin:20px 0 0}.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--lime);color:#172012;padding:8px;z-index:10}
-    @media(max-width:650px){.wrap{width:min(100% - 28px,1100px)}.links{gap:13px}.links a{font-size:12px}.hero{padding:72px 0}.intro{font-size:17px}section{padding:44px 0 54px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
-  </style>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -42,7 +22,7 @@
       <p class="intro">I’m Jithendra Vishnu, a Computer Science and Engineering graduate from the Central University of Jammu. I build software projects and explore how applications, cloud systems, and cybersecurity work in practice.</p>
       <div class="buttons"><a class="button primary" href="#projects">Explore my work ↓</a><a class="button" href="https://www.linkedin.com/in/jithendra-vishnu-a48143313" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="button" href="https://github.com/Jithendra54" target="_blank" rel="noreferrer">GitHub ↗</a></div>
       <div class="accent-rule"></div>
-    </div>
+    <div class="availability"><span class="dot"></span> Open to entry-level opportunities</div></div><div class="portrait-wrap"><div class="portrait-card"><img alt="Portrait of Jithendra Vishnu" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCABeAGADASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAABAUBAgMABv/EACoQAAEEAQMDBAIDAQEAAAAAAAEAAgMRBBIhMQVBURMyYXEiMyOBkRRC/8QAGAEAAwEBAAAAAAAAAAAAAAAAAAECAwT/xAAeEQACAwEAAgMAAAAAAAAAAAAAAQIRIRIDMRMyQf/aAAwDAQACEQMRAD8A9CEqnH87/tNkrm/c/wC0gMqS7qQqZv0mgCW9UoStJ2oISBhHRWgzv1C9kwn6hhY9tfK2xyBuV5Z2Q82GOLQfBq1jZa0kG0PRUej/AO3EmB9KQWex2VD+krzhlo2B/iedFyIZ4nRTvAcHANs8oqgohpsUQssqtcdCk5yMeGJo0tFpb1JzdcWkcHdJPQLRg+tH3tMPSf4QTX1LEapGvc+SmxndP5KwXNjNLJv3O+0xbIx16SD9JdMf5nfaoogJN1wkPZ4TkUlPW26qPhAhXBE7IkEbKHlMT0kOrXIVTpcZjhM1D8jQTPGnDzT2tLSdnAELGUneG8IqtAndMgaygLPlK5ojjS0DuNwU/wAnIF0xrQ0GrN7lKeotLgySu9Ig3+hNKsHDMo5GNE//ANFov7QWf+xhPlGR47o8eGJrdw0IbPieJIwRuTstFSOc11DXETuBytsjL9Nw9IUqMjaJomybDutepNx2MHpmyolVopegvo8bmQuDubVJ/wBzvtEdPBEbrN7oec/zu+1rH0JlQhMiv+oahYLUUCgM95ZM1w5HlDVocXTs1w42sibGaIbxS1fE1rm3Q3Q2JKSLdyStX6nOJc7bsudrTpi1WERMDi/gi7Q2TGw6WjgOuloC6NxF/iiMXEMzDK9poGx8poUmqDDI0CwLKWdUlc50R4oooufRcNvhAdQ1VG53cogtOYIfJswncoeaZ9APGwKJaxpfAHbA8oueCM5EbiQWN7KnjwErIxJ5WsI0ki+Vhmz6XuIsOCthZR16OHOKl+FLkyPo/hfuKqP1wRTEkMkepx3VMjDmypmhjTp7uPATDFwY8Yd5HeTx/iLN/itEs0BNlY4hyjENmFoLP62KzEksVjTqTPqcPqQh7ffHuPkdwl4dqaDVrHyKmdPjdoFkkfI7dukBO8GYOw4gG7FgSXJBDDQqwmnT3aIGxE04AUqgrRHkwDy9YynMjsjwEJn7Rx2Td8J4/H1vMrXU4it+Em6jjStc3W00T7uyK5ZkaPP6KNlEyxyiyWHTXKDeAwQu+d0b1DqIZC0R9+UZg0R0jE9QunmG100eU1PPwFEcbY4msaNmilzdhflaRjyqEc+65U0SCL/xQTbTsVIPwqEZCFuskizzZKHlxNJJj7mw1GEnX24XOujVJNKSpji3F2hZBF6kx1NsN7Hyi4cYRvN77bLdoHIbuV2+vjslGPKocpdOzminEWaUPYHW1wtrtiCpNijXCknbhUSIcuAwzmNxOkG2n4WGS0OaAE26rHbY5Q3UWuoj4W+NDHNBrfAGnwQsaqQ0gl5Iadl1/wBLnbilK2EUBsOHhWbwPpZt2keLPYqzPaNzwgCx9wXO4VSBqGykgVwEAc32hcfcFEYGgKs0Zewta4tJ4I7IAs8jSVxIqvJVXNGn+lzK114FpgVyLMTtPuAsJWOrTOlbwB48pw5YiGAEH0hY+FlNWNH/2Q=="><div class="portrait-note"><strong>Jithendra Vishnu</strong><span>Computer Science & Engineering</span></div></div></div></div>
     <section id="about">
       <div class="label">01 / About</div><h2>Learning by building.</h2>
       <p class="about">I completed a B.Tech in Computer Science and Engineering at the Central University of Jammu in 2026. I’m interested in practical software engineering, web development, cloud and IT infrastructure, and cybersecurity. My portfolio focuses on projects and experiments that help me turn technical concepts into working implementations.</p>
@@ -60,6 +40,7 @@
       <p class="about">My learning spans application development and core IT concepts. The skills below reflect areas of study and project work, not a claim of professional proficiency in every tool.</p>
       <div class="chips"><span class="chip">C programming</span><span class="chip">HTML · CSS · JavaScript</span><span class="chip">Python</span><span class="chip">Machine learning fundamentals</span><span class="chip">Cybersecurity</span><span class="chip">Cloud computing</span><span class="chip">Operating systems</span><span class="chip">Computer networks</span><span class="chip">Databases</span><span class="chip">Git & GitHub</span></div>
     </section>
+    <section id="skills"><div class="label">03 / Technical focus</div><h2>Areas I’m developing.</h2><p class="about">My learning spans application development and core IT concepts. These are areas of study and project work, not a claim of professional proficiency in every tool.</p><div class="chips"><span class="chip">C programming</span><span class="chip">HTML · CSS · JavaScript</span><span class="chip">Python</span><span class="chip">Machine learning</span><span class="chip">Cybersecurity</span><span class="chip">Cloud computing</span><span class="chip">Operating systems</span><span class="chip">Computer networks</span><span class="chip">Databases</span><span class="chip">Git & GitHub</span></div></section>
     <section id="contact">
       <div class="label">04 / Contact</div><h2>Let’s connect.</h2>
       <p class="about">I’m interested in entry-level opportunities and collaborations related to software development, IT systems, cloud, and cybersecurity.</p>
@@ -68,45 +49,6 @@
     </section>
   </main>
   <footer class="wrap"><span>© <span id="year">2026</span> Jithendra Vishnu</span><span>Designed and maintained by Jithendra Vishnu</span></footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const statusEl = document.querySelector('#status');
-    const grid = document.querySelector('#projects-grid');
-    const pinned = new Set(['Online_C-compiler', 'nids-robustness-study']);
-    fetch('https://api.github.com/users/Jithendra54/repos?type=owner&sort=updated&per_page=100')
-      .then(response => { if (!response.ok) throw new Error('GitHub API unavailable'); return response.json(); })
-      .then(repos => {
-        if (!Array.isArray(repos)) throw new Error('Unexpected GitHub response');
-        const selected = repos.filter(repo => !repo.fork && !repo.archived);
-        const existing = new Set();
-        selected.forEach(repo => existing.add(repo.name));
-        const curated = selected.sort((a, b) => {
-          const ap = pinned.has(a.name) ? 1 : 0, bp = pinned.has(b.name) ? 1 : 0;
-          return bp - ap || new Date(b.pushed_at) - new Date(a.pushed_at);
-        }).slice(0, 6);
-        if (!curated.length) throw new Error('No public projects found');
-        grid.innerHTML = curated.map(repo => {
-          const topics = (repo.topics || []).slice(0, 3);
-          const tags = topics.length ? topics : [repo.language || 'Project'];
-          return '<article class="card"><div class="label">' + escapeHtml(repo.language || 'Project') +
-            (repo.stargazers_count ? ' · ★ ' + repo.stargazers_count : '') + '</div><h3>' + escapeHtml(repo.name.replace(/[-_]/g, ' ')) +
-            '</h3><p>' + escapeHtml(repo.description || 'Project repository. Open GitHub for source code and details.') +
-            '</p><div class="meta">' + tags.map(tag => '<span>' + escapeHtml(tag) + '</span>').join('') +
-            '</div><p style="margin:18px 0 0"><a href="' + safeRepoUrl(repo.html_url) +
-            '" target="_blank" rel="noreferrer">View repository ↗</a></p></article>';
-        }).join('');
-        statusEl.textContent = 'Public repositories loaded live from GitHub · showing up to ' + curated.length + ' projects.';
-      })
-      .catch(() => {
-        statusEl.textContent = 'Showing selected projects. Visit GitHub for the latest repositories.';
-      });
-    function escapeHtml(value) {
-      return String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-    }
-    function safeRepoUrl(value) {
-      try { const url = new URL(value); return url.hostname === 'github.com' ? url.href : 'https://github.com/Jithendra54'; }
-      catch { return 'https://github.com/Jithendra54'; }
-    }
-  </script>
+  <script src="./script.js" defer></script>
 </body>
 </html>
